@@ -20,8 +20,12 @@ def about(request):
     data = response.json()
     serialize = data[0]['rates']
     foo = scrapNews()
+    
     for i in range(5):
-        Article.objects.create(title = foo['news{}'.format(i)]['title{}'.format(i)], slug = foo['news{}'.format(i)]['image{}'.format(i)], url =foo['news{}'.format(i)]['href{}'.format(i)])
+        if Article.objects.filter(title=foo['news{}'.format(i)]['title{}'.format(i)]).exists():
+            pass
+        else:
+            Article.objects.create(title = foo['news{}'.format(i)]['title{}'.format(i)], slug = foo['news{}'.format(i)]['image{}'.format(i)], url =foo['news{}'.format(i)]['href{}'.format(i)])
     return render(request, 'about.html', {'serialize': serialize})
     
 def charts(request):
