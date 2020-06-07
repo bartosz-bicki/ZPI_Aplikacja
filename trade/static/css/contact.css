@@ -1,13 +1,10 @@
 /*---------------------------------------------*/
-.container {
-  max-width: 1200px;
-}
-
 div.center-contact {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Contact ]*/
