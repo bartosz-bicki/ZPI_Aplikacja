@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from rest_framework import routers
 from . import views
 
@@ -11,7 +11,7 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('rejestracja', views.rejestracja, name='rejestracja'),
     path('charts', views.charts, name="charts"),
-    path('currencyexchanger', views.currencyexchanger, name="currencyexchanger")
+    path('currencyexchanger', views.currencyexchanger, name="currencyexchanger"),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
