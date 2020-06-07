@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 from django.urls import reverse_lazy
-from trade.models import Sympthoms
 from django.views import generic
 from django.utils import timezone
 from django.http import HttpResponseRedirect
 import requests
-from scraper import scrapNews, toJson
+from .models import Article
+from .scraper import scrapNews
+from rest_framework import viewsets
+from .serializers import ArticleSerializer
 
 # Create your views here.
 
@@ -17,6 +19,8 @@ def about(request):
     response = requests.get(url)
     data = response.json()
     serialize = data[0]['rates']
+    for i in range(5):
+        Article.objects.create(title = foo['news{}'.format(i)]['title{}'.format(i)], slug = foo['news{}'.format(i)]['image{}'.format(i)], url =foo['news{}'.format(i)]['href{}'.format(i)])
     return render(request, 'about.html', {'serialize': serialize})
     
 def charts(request):
@@ -50,6 +54,8 @@ def login(request):
 
 def contact(request):
     return render(request, 'contact.html', {'title': 'Contact'})
-
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = Article.objects.all().order_by('title')
+    serializer_class = ArticleSerializer
 
 
