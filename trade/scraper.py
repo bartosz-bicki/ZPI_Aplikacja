@@ -53,19 +53,17 @@ def scrapNews():
         newsData['news'+str(i)]['href'+str(i)] = hrefs[i]
         newsData['news'+str(i)]['title'+str(i)] = titles[i]
         newsData['news'+str(i)]['image'+str(i)] = images[i]
-
+    #new = newsData['news0']
     return newsData
 
-def toJson(file):
-    newsData = json.dumps([{'name' : k, 'parameters' : v} for k,v in file.items()], indent=4)
-    return newsData
 
-newsData = scrapNews()
 
     
-news = json.dumps([{'name' : k, 'parameters' : v} for k,v in newsData.items()], indent=4)
-print(newsData)
-print(news)
+
+
+
+
+
 
 
 
