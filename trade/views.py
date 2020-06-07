@@ -19,6 +19,7 @@ def about(request):
     response = requests.get(url)
     data = response.json()
     serialize = data[0]['rates']
+    foo = scrapNews()
     for i in range(5):
         Article.objects.create(title = foo['news{}'.format(i)]['title{}'.format(i)], slug = foo['news{}'.format(i)]['image{}'.format(i)], url =foo['news{}'.format(i)]['href{}'.format(i)])
     return render(request, 'about.html', {'serialize': serialize})
