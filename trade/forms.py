@@ -12,4 +12,4 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ["username", "email", "password1", "password2"]
 
-# bojan lubi w dupe
+# bojan jednak nie lubi w dupe
