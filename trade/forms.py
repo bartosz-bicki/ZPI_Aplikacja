@@ -18,3 +18,4 @@ class EditProfileForm(UserChangeForm):
 		model = User
 		fields = ["email", "first_name", "last_name"]
 		exclude = ["password"]
+		
