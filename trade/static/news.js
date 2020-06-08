@@ -1,25 +1,43 @@
-const puppeteer = require('puppeteer');
+//GET /article/?format=api
+// let newsData;
+// function AJAXrequest(){
+//     var $news = $('#news');
+//     $.ajax({
+//         type: 'GET',
+//         url: '/article/?format=json',
+//         success: function(data){
+//             console.log(data);
+//             newsData = data;
+//         }
+//     });
+// };
 
-async function scrapeProduct(url){
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
-    
-    const [el] = await page.$x('//*[@id="landingImage"]');
-    const src = await el.getProperty('src')
-    const srcTxt = await src.jsonValue();
+// AJAXrequest()
+const newsContainer = document.querySelector('#news');
 
-    const [el2] = await page.$x('//*[@id="productTitle"]');
-    const txt = await el2.getProperty('textContent')
-    const rawTxt = await txt.jsonValue();
 
-    const [el3] = await page.$x('//*[@id="priceblock_dealprice"]');
-    const price = await el3.getProperty('textContent')
-    const priceTxt = await price.jsonValue();
+const newsURL = '/article/?format=json' 
+fetch(newsURL)
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(news => {
+            newsContainer.insertAdjacentHTML('beforeend', `
+            <div class="article-container">
+				<a target="_blank" rel="noopener noreferrer" class="news-href" href="${news.url}">
+				<div class="img-container">
+					<img class="news-img" src="${news.slug}" alt="${news.title}">
+				</div>
+				<div class="title-container">
+					<h2 class="news-title">${news.title}</h2>
+				</div>
+			</a>
+		</div>
+            `)
 
-    console.log({srcTxt, rawTxt, priceTxt});
+        })
 
-    browser.close()
-}
+        console.log(data);
+    })
+    .catch(error => console.log('problem'))
 
-scrapeProduct('https://www.amazon.de/ASUS-Computer-Screenpad-UX434FLC-A5179T-i7-10510U/dp/B083SXFQC4?ref_=Oct_DLandingS_D_c57e9629_61&smid=A3JWKAKR8XB7XF');
+

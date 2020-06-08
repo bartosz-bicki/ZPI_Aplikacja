@@ -15,7 +15,7 @@ button:hover {
 }
 
 .wrapper {
-  margin: 20px 20px 20px 20px;
+  padding: 20px;
 }
 
 /* HEADER */
@@ -99,7 +99,7 @@ ul.currencies {
 }
 
 ul.currencies li.base-currency {
-  background-color: #817ffe48;
+  background-color: rgba(29, 160, 242, 0.288);
 }
 
 ul.currencies li.currency-element .img-container {
@@ -260,7 +260,7 @@ p.add-currency-list-header {
   cursor: pointer;
   height: 7%;
   width: 95%;
-  background-color: #827ffe;
+  background-color: #1DA1F2;
   border-radius: 31px;
   border: none;
   font-size: 2rem;
@@ -277,7 +277,7 @@ p.add-currency-list-header {
 }
 
 .activated-button {
-  background-color: #6866ca;
+  background-color: rgb(24, 120, 180);
 }
 
 .avers,

@@ -1,7 +1,9 @@
 .navigation{
-    background-color: #827ffe;
-    border-radius: 31px;
-    margin: 20px 10px 0 10px;
+    background-color: #1DA1F2;
+    border-radius: 10px;
+}
+.nav-container{
+    padding: 20px 10px 0 10px;
 }
 
 .navbar-brand{
@@ -25,5 +27,12 @@ ul.nav a:hover {
 div.container a.navbar-brand:hover{
     color: white !important;
     transform: scale(1.05)
+}
+
+.bck-img{
+    background-image: url('../img/dollars.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 

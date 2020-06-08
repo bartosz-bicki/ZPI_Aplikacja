@@ -3,6 +3,7 @@ div.center-contact {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 50px;
 }
 
 
@@ -44,18 +45,18 @@ div.center-contact {
 .contact100-form-title {
   display: block;
   font-family: Ubuntu-bold;
-  font-size: 30px;
+  font-size: 40px;
   color: #403866;
   line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
-  padding-bottom: 49px;
+  padding-bottom: 15%;
 }
 
 .contact100-form-alternative {
   display: block;
   font-family: Ubuntu-Bold;
-  margin-top: 30px;
+  padding-top: 20px;
   font-size: 15px;
   color: #403866;
   line-height: 1.2;
@@ -152,14 +153,14 @@ textarea.input100 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 80px;
   min-width: 150px;
-  height: 62px;
+  height: 60px;
   background-color: transparent;
   border-radius: 31px;
 
   font-family: Ubuntu-Bold;
-  font-size: 16px;
+  font-size: 20px;
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;

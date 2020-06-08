@@ -11,12 +11,15 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/navigation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <title>Waluty - Trading </title>
 </head>
 
 <body>
+<div class="bck-img">
     <header>
+        <div class="nav-container">
         <nav class="navigation navbar navbar-expand-lg navbar-toggleable-lg box-shadow mb-3" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="/">Home</a>
@@ -61,13 +64,15 @@
                 </div>
             </div>
         </nav>
+    </div>
     </header>
 
     {% block content %}
     {% endblock %}
-
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../static/jquery-3.5.1.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -79,4 +84,4 @@
     </script>
 </body>
 
-</html>
+</html> 

@@ -5,21 +5,20 @@
 	<title>Contact V10</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" type="text/css" href="../static/style.css">
+	
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/about.css">
 </head>
 
 <div class="wrapper">
-	<div class="news-container">
-		NEWS
+	<div class="news-container" id="news">
 	</div>
 	<div class="curr-table-container">
 		<table class="table table-striped" id="currency-table">
-			<thead class="thead-dark">
+			<thead class="thead-dark" >
 				<tr>
-					<th scope="col">Waluta</th>
-					<th scope="col">Kurs</th>
+					<th scope="col" id='th'>Waluta</th>
+					<th scope="col" id='th'>Kurs</th>
 				</tr>
 			</thead>
 		{% for curr in serialize %}
@@ -32,5 +31,7 @@
 	</div>
 	
 </div>
+<script src="../static/jquery-3.5.1.js"></script>
+<script src="../static/news.js"></script>
 
 {% endblock %}
