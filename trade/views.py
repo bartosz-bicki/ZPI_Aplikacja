@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
-
+from .forms import RegisterForm, EditProfileForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.utils import timezone
 from django.http import HttpResponseRedirect
 import requests
-from .models import Article
+from .models import Article, User
 from .scraper import scrapNews
 from rest_framework import viewsets
 from .serializers import ArticleSerializer
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 # Create your views here.
 
@@ -63,4 +66,32 @@ class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all().order_by('title')
     serializer_class = ArticleSerializer
 
+def profile(request):
+    register = User.objects
+    return render(request, 'profile.html', {'title': 'Profile', 'register': register})
 
+def edit_profile(request):
+    if request.method == "POST":
+        form = EditProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/profile')
+    else:
+        form = EditProfileForm(instance=request.user)
+        return render(request, 'edit_profile.html', {'form': form})
+
+def change_password(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('/profile')
+        else:
+            return redirect('/profile/edit/change_password')
+
+    else: 
+        form = PasswordChangeForm(user=request.user)
+        return render(request, 'change_password.html', {'form': form})

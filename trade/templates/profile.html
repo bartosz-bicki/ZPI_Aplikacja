@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%block title%}
+<h1>Mój profil</h1>
+{%endblock%}
+{% block content %}
+<head>
+	<title>Contact V10</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <style>
+        .registration-container{
+            height: 90vh;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+<div class="container">
+	<h1>Profil</h1>
+	<p>Nazwa użytkownika: {{ user }}</p>
+	<p>Imie: {{ user.first_name }}</p>
+	<p>Nazwisko: {{ user.last_name }}</p>
+	<p>Email: {{ user.email }}</p>
+
+</div>
+
+<a class="btn btn-primary" href="/profile/edit/">Edytuj Profil</a>
+
+{% endblock %}
