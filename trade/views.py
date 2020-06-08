@@ -8,6 +8,8 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect
 import requests
 from scraper import scrapNews, toJson
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 # Create your views here.
 
@@ -51,5 +53,32 @@ def login(request):
 def contact(request):
     return render(request, 'contact.html', {'title': 'Contact'})
 
+def profile(request):
+    register = User.objects
+    return render(request, 'profile.html', {'title': 'Profile', 'register': register})
 
+def edit_profile(request):
+    if request.method == "POST":
+        form = EditProfileForm(request.POST, instance=request.user)
 
+        if form.is_valid():
+            form.save()
+            return redirect('/profile')
+    else:
+        form = EditProfileForm(instance=request.user)
+        return render(request, 'edit_profile.html', {'form': form})
+
+def change_password(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            # update_session_auth_hash(request, form.user)
+            return redirect('/profile')
+        else:
+            return redirect('/change_password')
+
+    else: 
+        form = PasswordChangeForm(user=request.user)
+        return render(request, 'change_password.html', {'form': form})

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%block title%}
+<h1>Mój profil</h1>
+{%endblock%}
+{% block content %}
+<head>
+	<title>Contact V10</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../static/style.css">
+
+</head>
+
+<div class="container">
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Zaktualizuj</button>
+	</form>
+</div>
+
+
+
+{% endblock %}

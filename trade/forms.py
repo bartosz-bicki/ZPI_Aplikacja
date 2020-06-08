@@ -10,6 +10,11 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["username", "email", "password1", "password2"]
+        fields = ["username", "first_name", "last_name", "email", "password1", "password2"]
 
-# bojan jednak nie lubi w dupe
+class EditProfileForm(UserChangeForm):
+	password = None
+	class Meta:
+		model = User
+		fields = ["email", "first_name", "last_name"]
+		exclude = ["password"]
