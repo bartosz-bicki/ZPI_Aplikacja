@@ -29,10 +29,11 @@ div.container a.navbar-brand:hover{
     transform: scale(1.05)
 }
 
-.bck-img{
+/* .bck-img{
+    min-height: 100vh;
     background-image: url('../img/dollars.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 

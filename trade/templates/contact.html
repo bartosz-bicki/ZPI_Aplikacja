@@ -7,8 +7,8 @@
 	<title>Contact V10</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/contact.css">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static "../static/css/contact.css" %}">
 
 </head>
 
@@ -21,11 +21,11 @@
 			<form class="contact100-form validate-form" method="post" name="contactForm"
 				action="mailto:bartosz.bojanowski97@gmail.com" encypte="text/plain">
 				<span class="contact100-form-title">
-					Contact us!
+					Skontaktuj się z nami!
 				</span>
 
 				<div class="wrap-input100 validate-input" data-validate="say your name">
-					<input class="input100" type="text" name="name" placeholder="introduce yourself">
+					<input class="input100" type="text" name="name" placeholder="przedstaw się">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -35,7 +35,7 @@
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate="your message">
-					<textarea class="input100" name="message" placeholder="your message"></textarea>
+					<textarea class="input100" name="message" placeholder="napisz co cię trapi"></textarea>
 					<span class="focus-input100"></span>
 				</div>
 
@@ -43,18 +43,12 @@
 					<button class="contact100-form-btn" type="submit" name="submit">
 						<span>
 							<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
-							send
+							wyślij
 						</span>
 
 
 					</button>
 				</div>
-
-
-				<span class="contact100-form-alternative">
-					Or maybe you prefer traditional way: </br>
-					kontakt-waluty@adres.pl
-				</span>
 
 			</form>
 		</div>

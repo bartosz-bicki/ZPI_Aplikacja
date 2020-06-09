@@ -3,31 +3,27 @@
 <h1>Mój profil</h1>
 {%endblock%}
 {% block content %}
+{%load crispy_forms_tags%}
 <head>
 	<title>Contact V10</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <style>
-        .registration-container{
-            height: 90vh;
-            display:flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "../static/css/edit-profile.css" %}">
 
-<div class="container">
+<div class="edit-profile-container">
 	<form method="post">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit">Zaktualizuj</button>
+		{{ form|crispy }}
+        <div class="buttons-container">
+            <button type="submit" class="btn btn-success btn-block btn-lg">Zaktualizuj</button>
+            <a class="btn btn-primary btn-block btn-lg go-back" href="/profile">Powrót</a>
+            <a class="btn btn-primary btn-block btn-lg change-password" href="/profile/edit/change_password/">Zmień hasło</a>
+        </div>
 	</form>
 </div>
 
-<a class="btn btn-primary" href="/profile">Powrót</a>
-<a class="btn btn-primary" href="/profile/edit/change_password/">Zmień hasło</a>
+
 
 {% endblock %}
 

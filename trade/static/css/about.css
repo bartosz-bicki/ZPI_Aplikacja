@@ -62,7 +62,7 @@
 
 h2.news-title {
     font-family: 'Oswald';
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 400;
     text-decoration: none;
 }
@@ -72,7 +72,6 @@ h2.news-title {
     width: 30%;
     overflow: auto;
     border-radius: 10px !important;
-    background-color: rgba(0, 0, 0, .15);
 }
 
 #th{
@@ -80,6 +79,9 @@ h2.news-title {
     border: none;
 }
 
+.load-more-container{
+    width: 100%;
+}
 #loadMore {
     width: 200px;
     height: 50px;
@@ -90,17 +92,19 @@ h2.news-title {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid transparent;
-    background-color: blue;
+    background-color: #1DA1F2;
+    font-size: 20px;
     transition: .3s;
   }
   #loadMore:hover {
-    color: blue;
-    background-color: #fff;
-    border: 1px solid blue;
+    color: #1DA1F2;
+    background-color: transparent;
+    border: 1px solid #1DA1F2;
     text-decoration: none;
   }
   .noContent {
     color: #000 !important;
     background-color: transparent !important;
+    font-size: 20px;
     pointer-events: none;
   }

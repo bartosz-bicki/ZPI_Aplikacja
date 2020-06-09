@@ -188,7 +188,7 @@ textarea.input100 {
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
   border-radius: 31px;
-  background-color: #827ffe;
+  background-color: #1DA1F2;
   pointer-events: none;
 
   -webkit-transition: all 0.4s;
@@ -198,7 +198,7 @@ textarea.input100 {
 }
 
 .contact100-form-btn:hover:before {
-  background-color: #403866;
+  background-color: rgb(20, 89, 133);
   width: calc(100% + 20px);
 }
 

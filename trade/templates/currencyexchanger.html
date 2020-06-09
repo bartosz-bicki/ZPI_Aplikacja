@@ -7,15 +7,15 @@
     <title>Contact V10</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/currency-exchanger.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "../static/css/currency-exchanger.css" %}">
 
 </head>
 
 <body>
     <div class="wrapper">
         <div class="work-container">
-            <div class="charts">tu bendom wykresy</div>
+            <!-- <div class="charts">tu bendom wykresy</div> -->
             <div class="currencies-container">
                 <div class="current-date"></div>
                 <ul class="currencies"></ul>

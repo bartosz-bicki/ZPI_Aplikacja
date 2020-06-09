@@ -5,14 +5,15 @@
 	<title>Contact V10</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/about.css">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static "../static/css/about.css" %}">
 </head>
 
 <div class="wrapper">
 	<div class="news-container" id="news">
-	<a href="#" id="loadMore">Load More</a>
+		<div class="load-more-container">
+			<a href="#" id="loadMore">Load More</a>
+		</div>
 	</div>
 	<div class="curr-table-container">
 		<table class="table table-striped" id="currency-table">

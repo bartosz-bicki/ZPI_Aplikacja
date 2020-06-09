@@ -7,24 +7,17 @@
 	<title>Contact V10</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <style>
-        .registration-container{
-            height: 90vh;
-            display:flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="../../static/css/login.css">
 </head>
+<div class="wrap-registration">
     <div class="registration-container">
         <form method="POST" class="form-group">
         {%csrf_token%}   
         {{form|crispy}}
-        <button type ="submit" class="btn btn-success">Zarejestruj</button>
+        <button type ="submit" class="btn btn-success btn-block btn-lg">Zarejestruj</button>
         </form>
     </div>
+</div>
 
 {%endblock%}
 

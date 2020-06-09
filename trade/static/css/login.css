@@ -1,0 +1,71 @@
+.wrap-login{
+    display:flex;
+    justify-content: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.form-group{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+}
+.requiredField{
+    font-size: 25px;
+    font-family: Roboto;
+}
+
+.textInput{
+    padding: 30px 45px;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-block{
+    width: 80%;
+}
+
+form p{
+    padding: 15px;
+}
+.registration-button{
+    font-size: 16px;
+}
+
+.wrap-registration{
+    display:flex;
+    justify-content: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.registration-container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.registration-container .textInput{
+    padding: 20px 80px;
+}
+
+.registration-container .emailinput{
+    padding: 20px 120px;
+}
+.registration-container label{
+    font-size: 25px;
+    font-family: Roboto;
+}
+
+.registration-container .btn-block{
+    width: 100%;
+}
+

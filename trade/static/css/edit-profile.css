@@ -1,0 +1,17 @@
+.edit-profile-container{
+    padding-top: 50px;
+    max-width: 60%;
+    margin: auto;
+}
+
+.buttons-container{
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-lg{
+    max-width: 80%;
+}
