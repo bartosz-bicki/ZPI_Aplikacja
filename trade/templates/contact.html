@@ -18,14 +18,19 @@
 	<div class="container-contact100">
 
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" method="post" name="contactForm"
-				action="mailto:bartosz.bojanowski97@gmail.com" encypte="text/plain">
+			<form class="contact100-form validate-form" method="POST" action="{% url 'contact' %}" name="contactForm" encypte="text/plain">
+				{% csrf_token %}
 				<span class="contact100-form-title">
 					Skontaktuj się z nami!
 				</span>
 
 				<div class="wrap-input100 validate-input" data-validate="say your name">
 					<input class="input100" type="text" name="name" placeholder="przedstaw się">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="say your subject">
+					<input class="input100" type="text" name="subject" placeholder="w jakim celu piszesz?">
 					<span class="focus-input100"></span>
 				</div>
 

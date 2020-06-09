@@ -12,6 +12,8 @@ from .serializers import ArticleSerializer
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Create your views here.
@@ -23,26 +25,28 @@ def about(request):
     data = response.json()
     serialize = data[0]['rates']
     foo = scrapNews()
-    
+
     for i in range(len(foo)):
-        if Article.objects.filter(url =foo['news{}'.format(i)]['href{}'.format(i)]).exists():
+        if Article.objects.filter(url=foo['news{}'.format(i)]['href{}'.format(i)]).exists():
             pass
         else:
-            Article.objects.create(title = foo['news{}'.format(i)]['title{}'.format(i)], slug = foo['news{}'.format(i)]['image{}'.format(i)], url = foo['news{}'.format(i)]['href{}'.format(i)])
+            Article.objects.create(title=foo['news{}'.format(i)]['title{}'.format(i)], slug=foo['news{}'.format(
+                i)]['image{}'.format(i)], url=foo['news{}'.format(i)]['href{}'.format(i)])
     return render(request, 'about.html', {'serialize': serialize})
-    
+
+
 def charts(request):
     return render(request, 'charts.html', {'title': 'Charts'})
 
+
 def currencyexchanger(request):
     newsData = scrapNews()
-    
-    return render(request, 'currencyexchanger.html', {'newsData' : newsData})
+
+    return render(request, 'currencyexchanger.html', {'newsData': newsData})
 
 
 def team(request):
     return render(request, 'team.html', {'title': 'Team'})
-
 
 
 def rejestracja(response):
@@ -54,21 +58,37 @@ def rejestracja(response):
     else:
         form = RegisterForm()
 
-    return render(response, 'rejestracja.html', {'form':form})
+    return render(response, 'rejestracja.html', {'form': form})
 
 
 def login(request):
     return render(request, 'login.html', {'title': 'Login'})
 
+
 def contact(request):
+    if request.method == 'POST':
+        subject = request.POST['subject']
+        name = request.POST['name']
+        configured_mail = [settings.EMAIL_HOST_USER]
+        from_mail = request.POST['email']
+        message = "Masz jedną nową wiadomość od użytkownika Twojej strony TradePol przesłaną przez: " + \
+            name + " z maila:\n" + from_mail + " \n'\n\n\n " + \
+            request.POST['message'] + " \n\n\n\n'\n "
+
+        send_mail(subject, message, from_mail,
+                  configured_mail, fail_silently=False)
     return render(request, 'contact.html', {'title': 'Contact'})
+
+
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all().order_by('title')
     serializer_class = ArticleSerializer
 
+
 def profile(request):
     register = User.objects
     return render(request, 'profile.html', {'title': 'Profile', 'register': register})
+
 
 def edit_profile(request):
     if request.method == "POST":
@@ -81,6 +101,7 @@ def edit_profile(request):
         form = EditProfileForm(instance=request.user)
         return render(request, 'edit_profile.html', {'form': form})
 
+
 def change_password(request):
     if request.method == "POST":
         form = PasswordChangeForm(data=request.POST, user=request.user)
@@ -92,7 +113,6 @@ def change_password(request):
         else:
             return redirect('/profile/edit/change_password')
 
-    else: 
+    else:
         form = PasswordChangeForm(user=request.user)
         return render(request, 'change_password.html', {'form': form})
-        
