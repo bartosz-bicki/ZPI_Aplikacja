@@ -25,11 +25,12 @@
                 <nav class="navigation navbar navbar-expand-lg navbar-toggleable-lg box-shadow mb-3" id="navbar">
                     <div class="container">
                         <a href="/" class="navbar-brand">
-                            
+
                         </a>
                         <a class="navbar-brand" href="/">
-                            <img src="../static/img/money.svg" height="45" -webkit-filter= "invert(1)"
-                            filter = "invert(1)" alt="logo">
+                            {% load static %}
+                            <img src="{% static "../static/img/money.svg" %}" height="45" -webkit-filter="invert(1)"
+                                filter="invert(1)" alt="logo">
                             tradepol</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
